@@ -13,8 +13,8 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
-app.get('/blog/', function(request, response) {
-    response.render('pages/index');
+app.get('/blog/:blog_id/', function(request, response) {
+    response.render('pages/blog');
 });
 
 app.listen(app.get('port'), function() {
