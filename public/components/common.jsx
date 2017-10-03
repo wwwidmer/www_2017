@@ -13,7 +13,7 @@ class BlogShowCase extends React.Component {
 
 class BlogList extends React.Component {
       renderBlogItem(post_properties) {
-           return <BlogItem post_properties=post_properties/>
+           return <BlogItem post_properties={post_properties}/>
       }
       render() {
       }
