@@ -1,3 +1,4 @@
+<script type="text/jsx">
 class BlogShowCase extends React.Component {
       render() {
       	       return (
@@ -10,3 +11,4 @@ class BlogShowCase extends React.Component {
       }
 }
 
+</script>
