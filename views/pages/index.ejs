@@ -10,7 +10,6 @@
           return new Promise(function(resolve, reject){
                 var req = new XMLHttpRequest();
                 req.open('GET', url);
-                console.log('entering promise', req);
                 req.onload = function(){
                     console.log(req);
                     if (req.status === 200) {
