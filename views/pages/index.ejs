@@ -3,19 +3,44 @@
 <head>
   <% include ../partials/header.ejs %>
   <script type="text/jsx">
-    var latest_blog_entry = {
-        title: "Blog title for one page",
-        entry_date: (new Date).toDateString(),
-        image_url: "http://www.deftune.com/wp-content/uploads/2010/10/thexx-400x400.jpg",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    }
-    
-    setTimeout(function(){
-    ReactDOM.render(
-    <BlogShowCase latest_blog_entry={latest_blog_entry}/>,
-    document.getElementById('latest_blog')
-    )}, 100);
 
+    $(document).ready(function() {
+
+        function get_url_async(url) {
+          return new Promise(function(resolve, reject){
+                var req = new XMLHttpRequest();
+                req.open('GET', url);
+                console.log('entering promise', req);
+                req.onload = function(){
+                    console.log(req);
+                    if (req.status === 200) {
+                        resolve(req.response);
+                    }
+                    else {
+                        reject(Error(req.statusText));
+                    }
+                }
+                req.onerror = function() {
+                    reject(Error('Network Error!'));
+                }
+
+                req.send();
+          });
+        }
+
+        var latest_post_url = 'https://agile-earth-31601.herokuapp.com/latest/';
+        
+        get_url_async(latest_post_url).then(function(response){
+            console.log(response);
+        }, function(err) {b
+            console.error('Failure', err);
+        });
+    });
+
+ /* ReactDOM.render(
+    <BlogShowCase latest_blog_entry={response.response}/>, document.getElementById('latest_blog')
+  )
+  */
   </script>
 </head>
 
