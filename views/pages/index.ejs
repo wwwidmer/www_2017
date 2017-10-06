@@ -5,7 +5,6 @@
   <script type="text/jsx">
 
     $(document).ready(function() {
-        $('#latest_blog').addClass('spinner');
         function get_url_async(url) {
           return new Promise(function(resolve, reject){
                 var req = new XMLHttpRequest();
@@ -37,6 +36,7 @@
               <BlogShowCase latest_blog_entry={latest_blog_entry}/>,document.getElementById('latest_blog')
               )
             }, function(err) {
+              $('#latest_blog').removeClass('spinner');
               console.error('Failure', err);
         });
     });
@@ -55,7 +55,7 @@
     </div>
 </div>
 <div class="container">
-  <div id="latest_blog"></div>
+  <div id="latest_blog" class="spinner"></div>
 </div>
 <div class="container">
   <h2> About me </h2>
