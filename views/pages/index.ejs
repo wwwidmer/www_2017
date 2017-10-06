@@ -27,19 +27,19 @@
           });
         }
 
-        var latest_post_url = 'https://agile-earth-31601.herokuapp.com/api/';
+        var blog_list_url = 'https://agile-earth-31601.herokuapp.com/api/';
         
-        get_url_async(latest_post_url).then(function(response){
-            console.log(response);
-        }, function(err) {
+        get_url_async(blog_list_url).then(function(response){
+            var blog_list = JSON.parse(response);
+            var latest_blog_entry = blog_list[blog_list.length-1];
+            ReactDOM.render(
+              <BlogShowCase latest_blog_entry={latest_blog_entry}/>,document.getElementById('latest_blog')
+              )
+            }, function(err) {
             console.error('Failure', err);
         });
     });
 
- /* ReactDOM.render(
-    <BlogShowCase latest_blog_entry={response.response}/>, document.getElementById('latest_blog')
-  )
-  */
   </script>
 </head>
 
