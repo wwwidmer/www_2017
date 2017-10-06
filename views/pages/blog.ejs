@@ -8,7 +8,7 @@
         var blog_list_url = 'https://agile-earth-31601.herokuapp.com/api/';
         
         get_url_async(blog_list_url).then(function(response){
-            $('#latest_blog').removeClass('spinner');
+            $('#latest_blog').removeClass('big-spinner');
             var blog_list = JSON.parse(response);
             var latest_blog_entry = blog_list[blog_list.length-1];
             ReactDOM.render(
@@ -19,7 +19,7 @@
               <BlogShowCase latest_blog_entry={latest_blog_entry}/>,document.getElementById('latest_blog')
               )
             }, function(err) {
-              $('#latest_blog').removeClass('spinner');
+              $('#latest_blog').removeClass('big-spinner');
               console.error('Failure', err);
         });
     });
