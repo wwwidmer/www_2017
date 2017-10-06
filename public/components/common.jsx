@@ -39,7 +39,7 @@ class BlogList extends React.Component {
       render() {
           return (<ul> 
             for (var i = 0; i < this.props.blog_list.length; i++) {
-                <li>this.renderBlogItem(this.props.blog_list[i])</li>
+                <li>{this.renderBlogItem(this.props.blog_list[i])}</li>
             }
           </ul>)
       }
