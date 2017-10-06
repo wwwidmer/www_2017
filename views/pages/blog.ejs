@@ -2,18 +2,38 @@
 <html>
 <head>
   <% include ../partials/header.ejs %>
+
+  <script type="text/jsx">
+  	 $(document).ready(function() {
+        var blog_list_url = 'https://agile-earth-31601.herokuapp.com/api/';
+        
+        get_url_async(blog_list_url).then(function(response){
+            $('#latest_blog').removeClass('spinner');
+            var blog_list = JSON.parse(response);
+            var latest_blog_entry = blog_list[blog_list.length-1];
+            ReactDOM.render(
+            	<BlogList blog_list={blog_list}/>,
+            	document.getElementById('entries')
+            )
+            ReactDOM.render(
+              <BlogShowCase latest_blog_entry={latest_blog_entry}/>,document.getElementById('latest_blog')
+              )
+            }, function(err) {
+              $('#latest_blog').removeClass('spinner');
+              console.error('Failure', err);
+        });
+    });
+
+  </script>
 </head>
 
 <body>
   <% include ../partials/nav.ejs %>
 <div class="jumbotron text-center">
-    <div class="container">
-      <h1> Latest blog </h2>
-      <p> Description of latest blog goes here </p>
+    <div class="container" id="latest_blog" class="spinner">
+      
     </div>
 </div>
-<div class="container">
-  <h2> A list of blog entries </h2>
-</div>
+<div class="container" id="entries"></div>
 </body>
 </html>

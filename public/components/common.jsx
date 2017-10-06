@@ -1,3 +1,24 @@
+function get_url_async(url) {
+  return new Promise(function(resolve, reject){
+        var req = new XMLHttpRequest();
+        req.open('GET', url);
+        req.onload = function(){
+            console.log(req);
+            if (req.status === 200) {
+                resolve(req.response);
+            }
+            else {
+                reject(Error(req.statusText));
+            }
+        }
+        req.onerror = function() {
+            reject(Error('Network Error!'));
+        }
+
+        req.send();
+  });
+}
+
 class BlogShowCase extends React.Component {
       render() {
             return (
@@ -12,16 +33,21 @@ class BlogShowCase extends React.Component {
 
 
 class BlogList extends React.Component {
-      renderBlogItem(post_properties) {
-           return <BlogItem post_properties={post_properties}/>
+      renderBlogItem(post_detail) {
+           return <BlogItem post_detail={post_detail}/>
       }
       render() {
+          return (<ul> 
+            for (var i = 0; i < this.props.blog_list.length; i++) {
+                <li>this.renderBlogItem(this.props.blog_list[i])</li>
+            }
+          </ul>)
       }
 }
 
 
 class BlogItem extends React.Component {
       render () {
-      	     return (<div> {this.props.post_properties.title} </div>)
+      	     return (<div> {this.props.post_detail.title} </div>)
       }
 }

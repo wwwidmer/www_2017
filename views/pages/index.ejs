@@ -5,27 +5,6 @@
   <script type="text/jsx">
 
     $(document).ready(function() {
-        function get_url_async(url) {
-          return new Promise(function(resolve, reject){
-                var req = new XMLHttpRequest();
-                req.open('GET', url);
-                req.onload = function(){
-                    console.log(req);
-                    if (req.status === 200) {
-                        resolve(req.response);
-                    }
-                    else {
-                        reject(Error(req.statusText));
-                    }
-                }
-                req.onerror = function() {
-                    reject(Error('Network Error!'));
-                }
-
-                req.send();
-          });
-        }
-
         var blog_list_url = 'https://agile-earth-31601.herokuapp.com/api/';
         
         get_url_async(blog_list_url).then(function(response){
