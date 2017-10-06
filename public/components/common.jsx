@@ -33,21 +33,21 @@ class BlogShowCase extends React.Component {
 
 
 class BlogList extends React.Component {
-      renderBlogItem(post_detail) {
-           return <BlogItem post_detail={post_detail}/>
+      renderBlogPost(post_detail) {
+           return <BlogPost post_detail={post_detail}/>
       }
       render() {
-          return (<ul> 
+            var blogposts = [];
             for (var i = 0; i < this.props.blog_list.length; i++) {
-                
+                blogposts.push(<BlogPost post_detail={this.props.blog_list[i]}/>)
             }
-          </ul>)
+          return (<ul> {blogposts} </ul>)
       }
 }
 
 
-class BlogItem extends React.Component {
+class BlogPost extends React.Component {
       render () {
-      	     return (<div> {this.props.post_detail.title} </div>)
+      	     return (<li> {this.props.post_detail.title} </li>)
       }
 }
