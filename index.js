@@ -7,7 +7,6 @@ app.set('prod', (process.env.PROD || false));
 app.locals.RBP = {
 	api_prefix: app.get('prod') ? 'https://agile-earth-31601.herokuapp.com/': 'http://127.0.0.1:8000/'
 };
-app.locals.test = 'TEST';
 
 app.all('/', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");

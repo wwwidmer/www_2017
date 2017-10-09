@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": " PROD=1 node index.js",
+    "start": "PROD=1 node index.js",
     "test": "TEST=1 node test.js"
   },
   "dependencies": {
