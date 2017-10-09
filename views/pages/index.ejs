@@ -2,11 +2,13 @@
 <html>
 <head>
   <% include ../partials/header.ejs %>
+
   <script type="text/jsx">
+    var api_prefix = '<%= RBP.api_prefix %>';
+    var blog_list_url = api_prefix + 'api/';
+
 
     $(document).ready(function() {
-        var blog_list_url = 'https://agile-earth-31601.herokuapp.com/api/';
-        
         get_url_async(blog_list_url).then(function(response){
             $('#latest_blog').removeClass('spinner');
             var blog_list = JSON.parse(response);
@@ -34,12 +36,13 @@
     </div>
 </div>
 <div class="container">
-  <div id="latest_blog" class="spinner"></div>
+  <h2> About me </h2>
+  <p>My name is William and I built this webpage to showcase some of my technological skills. </p>
+  <p> I graduated from Hunter College with a degree in Computer Science. I have been programming for several years before graduation. Past work includes working at a starup, an NYC governmental department, and consulting non-profit human rights organizations. I'm passionate in what I believe in and am trying to use my technical skills to cause positive change in the world.</p>
+  <small>These pages were built with bootstrap, node, and react. A seperate backend app, which houses an API where to access blog posts can be found at <a href="https://agile-earth-31601.herokuapp.com/">agile-earth-31601.herokuapp</a>. This API uses Django and the Django rest framework.</small>
 </div>
 <div class="container">
-  <h2> About me </h2>
-  <p>Welcome! My name is WW and I built this webpage to showcase some of my technological skills. </p>
-  <p>These pages were built with bootstrap, node, and react.</p>
+  <div id="latest_blog" class="spinner"></div>
 </div>
 </body>
 </html>

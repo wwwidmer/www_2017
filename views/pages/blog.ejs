@@ -4,8 +4,10 @@
   <% include ../partials/header.ejs %>
 
   <script type="text/jsx">
+      var api_prefix = '<%= RBP.api_prefix %>';
+
   	 $(document).ready(function() {
-        var blog_list_url = 'https://agile-earth-31601.herokuapp.com/api/';
+        var blog_list_url = api_prefix + 'api/'
         
         get_url_async(blog_list_url).then(function(response){
             $('#latest_blog').removeClass('big-spinner');
