@@ -33,7 +33,7 @@ class BlogShowCase extends React.Component {
          	<div>
         		<a href="/blog"> <h3> {this.props.latest_blog_entry.title} | {this.props.latest_blog_entry.timestamp.split('T')[0]} </h3></a>
         		<img src={this.props.latest_blog_entry.image_url} alt="" />
-  		    <p>{this.props.latest_blog_entry.text}</p>
+  		    <p>{this.props.latest_blog_entry.description}</p>
   	      </div>
   		)}
 }
