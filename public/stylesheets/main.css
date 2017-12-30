@@ -1,10 +1,12 @@
 nav {
   margin-bottom: 0 !important;
 }
-.list-group-item {
+.list-group-item * {
   color: #000;
 }
-
+ul li {
+  list-style-type: none;
+}
 .jumbotron {
   background: #003300;
   color: white;

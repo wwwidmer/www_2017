@@ -8,7 +8,7 @@
 
   	 $(document).ready(function() {
         var blog_list_url = api_prefix + 'api/'
-        
+
         get_url_async(blog_list_url).then(function(response){
             $('#latest_blog').removeClass('big-spinner');
             var blog_list = JSON.parse(response);
@@ -18,11 +18,12 @@
             	document.getElementById('entries')
             )
             ReactDOM.render(
-              <BlogShowCase latest_blog_entry={latest_blog_entry}/>,document.getElementById('latest_blog')
-              )
-            }, function(err) {
-              $('#latest_blog').removeClass('big-spinner');
-              console.error('Failure', err);
+              <BlogShowCase latest_blog_entry={latest_blog_entry}/>,
+              document.getElementById('latest_blog')
+            )
+        }, function(err) {
+            $('#latest_blog').removeClass('big-spinner');
+            console.error('Failure', err);
         });
     });
 

@@ -4,7 +4,7 @@
   <% include ../partials/header.ejs %>
 
   <script type="text/jsx">
-    var blog_id = 3;
+    var blog_id = document.location.pathname.split('/blog/')[1];
     var api_prefix = '<%= RBP.api_prefix %>';
 
     $(document).ready(function() {
