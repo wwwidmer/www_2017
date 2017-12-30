@@ -1,29 +1,35 @@
+nav {
+  margin-bottom: 0 !important;
+}
+.list-group-item {
+  color: #000;
+}
+
 .jumbotron {
   background: #003300;
   color: white;
-  padding-bottom: 80px; }
-  .jumbotron .btn-primary {
-    background: #003300;
-    border-color: #003300; }
-  .jumbotron p {
-    color: #d9ccee;
-    max-width: 75%;
-    margin: 1em auto 2em; }
-  .navbar + .jumbotron {
-    margin-top: -20px; }
-
-
+  padding-bottom: 80px;
+}
+.jumbotron .btn-primary {
+  background: #003300;
+  border-color: #003300;
+}
+.jumbotron p {
+  color: #d9ccee;
+  max-width: 75%;
+  margin: 1em auto 2em;
+}
 .spinner {
-    border: 5px solid #f3f3f3; 
-    border-top: 8px solid #003300; 
+    border: 5px solid #f3f3f3;
+    border-top: 8px solid #003300;
     border-radius: 50%;
     width: 25px;
     height: 25px;
     animation: spin 1s linear infinite;
 }
 .big-spinner {
-    border: 5px solid #c9c9c9; 
-    border-top: 5px solid #fff; 
+    border: 5px solid #c9c9c9;
+    border-top: 5px solid #fff;
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -32,4 +38,171 @@
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+@import "https://fonts.googleapis.com/css?family=Comfortaa:300,700|Bungee+Shade|Josefin+Sans:400";
+.support {
+  align-items: center;
+  background: tomato;
+  color: #fff;
+  display: flex;
+  font-size: .9rem;
+  padding: 0 10px 0 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: auto;
+  z-index: 100;
+}
+.support a {
+  color: #fff;
+  padding: 10px 0;
+  text-decoration: none;
+}
+@supports (display: grid) {
+  .support {
+    background: #058a6e;
+    right: 40px;
+    transform: translateX(100%);
+    transition: right .5s ease-in-out, transform .5s ease-in-out;
+  }
+  .support:hover {
+    right: 0;
+    transform: translateX(0%);
+  }
+}
+
+.support svg {
+  fill: #ffffff;
+  height: 30px;
+  margin-right: 5px;
+  padding: 5px;
+  width: 30px;
+}
+
+.unsupported {
+  display: block;
+}
+@supports (display: grid) {
+  .unsupported {
+    display: none;
+  }
+}
+
+.supported {
+  display: none;
+}
+@supports (display: grid) {
+  .supported {
+    display: block;
+  }
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(1fr, 500px);
+}
+@media (min-width: 34em) {
+  main {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.heading {
+  grid-row: span 3;
+}
+
+.intro {
+  grid-row: span 4;
+}
+@media (min-width: 34em) {
+  .intro {
+    grid-column: span 3;
+  }
+}
+
+main > div:nth-of-type(1) {
+  background: #07779c;
+}
+
+main > div:nth-of-type(2) {
+  background: #157c89;
+}
+
+main > div:nth-of-type(3) {
+  background: #238077;
+}
+
+main > div:nth-of-type(4) {
+  background: #318564;
+}
+
+main > div:nth-of-type(5) {
+  background: #3f8a52;
+}
+
+main > div:nth-of-type(6) {
+  background: #4d8e3f;
+}
+
+main > div:nth-of-type(7) {
+  background: #5b932c;
+}
+
+main > div:nth-of-type(8) {
+  background: #69971a;
+}
+
+main > div:nth-of-type(9) {
+  background: #779c07;
+}
+
+body {
+  background: #424242;
+  color: #fff;
+  font-family: Comfortaa, sans-serif;
+  font-weight: 300;
+  letter-spacing: .03rem;
+  line-height: 1;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+div {
+  color: #fff;
+  padding: .85rem;
+}
+@media (min-width: 34em) {
+  div {
+    padding: 2rem;
+  }
+}
+
+h2 {
+  font-size: 2.0rem;
+  display: inline-block;
+  font-weight: 300;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+}
+
+.demo-number {
+  font-family: 'Bungee Shade', cursive;
+  font-size: 3.5rem;
+}
+
+a {
+  color: #133875;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
 }

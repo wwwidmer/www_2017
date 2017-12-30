@@ -4,25 +4,31 @@
   <% include ../partials/header.ejs %>
 
   <script type="text/jsx">
-    var blog_id = 2;
+    var blog_id = 3;
     var api_prefix = '<%= RBP.api_prefix %>';
 
     $(document).ready(function() {
         var blog_detail_url = api_prefix + 'api/post/' + blog_id;
         get_url_async(blog_detail_url).then(function(response){
             var blog_detail = JSON.parse(response);
-            console.log(blog_detail);
             $('#latest_blog').removeClass('spinner');
 
-            /*
             ReactDOM.render(
-              <h1> {blog_detail} </h1> document.getElementById('latest_blog')
-              )
-              */
+              <h1> {blog_detail.title} </h1>,
+              document.getElementById('jumbo')
+            )
+            ReactDOM.render(
+                <div>
+                  <div> {blog_detail.timestamp} </div>
+                  <p> {blog_detail.text} </p>
+                </div>,
+                document.getElementById('latest_blog')
+            )
+            $('#jumbo').removeClass('spinner');
             }, function(err) {
-              $('#latest_blog').removeClass('spinner');
-              console.error('Failure', err);
-        });
+              $('#jumbo').removeClass('spinner');
+            }
+        );
     });
 
   </script>
@@ -31,12 +37,11 @@
 <body>
 <% include ../partials/nav.ejs %>
 <div class="jumbotron text-center">
-    <div class="container">
-      <h1> WIP </h1>
-    </div>
+    <div class="container spinner" id="jumbo"> </div>
 </div>
 <div class="container">
-  <div id="latest_blog" class="spinner"></div>
+  <div id="latest_blog" class="spinner">
+  </div>
 </div>
 
 </body>

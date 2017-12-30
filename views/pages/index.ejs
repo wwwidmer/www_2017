@@ -7,7 +7,6 @@
     var api_prefix = '<%= RBP.api_prefix %>';
     var blog_list_url = api_prefix + 'api/';
 
-
     $(document).ready(function() {
         get_url_async(blog_list_url).then(function(response){
             $('#latest_blog').removeClass('spinner');
@@ -19,7 +18,8 @@
             }, function(err) {
               $('#latest_blog').removeClass('spinner');
               console.error('Failure', err);
-        });
+            }
+        );
     });
 
   </script>
@@ -27,22 +27,48 @@
 
 <body>
   <% include ../partials/nav.ejs %>
-<div class="jumbotron text-center">
-    <div class="container">
-      <h1> William Widmer's personal website! </h1>
-      <p> A place to showcase my work as a software developer. </p>
-      <a class="btn btn-lg btn-default" href="https://github.com/wwwidmer"> Github </a>
-      <a class="btn btn-lg btn-default" href="https://drive.google.com/open?id=1OdCb9goP0kpfKGHv_MvtffLOgu25YzR8yNv-NHDfD00"> Resume </a>
+  <main>
+  	<div class="intro">
+      <h1> William Widmer </h1>
+      <p> Software Engineer </p>
     </div>
-</div>
-<div class="container">
-  <h2> About me </h2>
-  <p>My name is William and I built this webpage to showcase some of my technological skills. </p>
-  <p> I graduated from Hunter College with a degree in Computer Science. I have been programming for several years before graduation. Past work includes working at a starup, an NYC governmental department, and consulting non-profit human rights organizations. I'm passionate in what I believe in and am trying to use my technical skills to cause positive change in the world.</p>
-  <small>These pages were built with bootstrap, node, and react. A seperate backend app, which houses an API where to access blog posts can be found at <a href="https://agile-earth-31601.herokuapp.com/">agile-earth-31601.herokuapp</a>. This API uses Django and the Django rest framework.</small>
-</div>
-<div class="container">
-  <div id="latest_blog" class="spinner"></div>
-</div>
+    <div>
+      <h1> California, U.S.A. </h1>
+    </div>
+  	<div class="intro">
+      <ul class="list-group">
+        <li class="list-group-item"> Full stack experience </li>
+        <li class="list-group-item"> Python, Javascript </li>
+        <li class="list-group-item"> Flask, Django, jQuery, React, Redux </li>
+        <li class="list-group-item">
+          Attempting to learn Go, CSS Grid, and UI/UX design.
+        </li>
+      </ul>
+  	</div>
+    <div>
+      <h2>
+        <button type="button" class="btn btn-secondary">
+          <a href="https://drive.google.com/open?id=1OdCb9goP0kpfKGHv_MvtffLOgu25YzR8yNv-NHDfD00"> Resume / CV </a>
+        </button>
+      </h2>
+    </div>
+    <div>
+      <h2>
+        <button type="button" class="btn btn-secondary">
+          <a href="https://github.com/wwwidmer"> Github </a>
+        </button>
+      </h2>
+    </div>
+    <div></div>
+  	<div>
+      Based on CSS grid example found
+      <a href="https://codepen.io/stacy/pen/ALdqjr"> here </a>
+    </div>
+    <div class="intro">
+      <p> This blog post is retrieved through an AJAX call to a Django application</p>
+      <div id="latest_blog"> </div>
+    </div>
+  </main>
+
 </body>
 </html>
